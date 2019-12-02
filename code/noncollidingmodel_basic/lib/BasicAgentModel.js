@@ -24,7 +24,7 @@ const urlBowser = "images/eeve.png";
 const urlToad = "images/bulbasaur.png";
 const urlDoctor1 = "images/cashier.png";
 const urlDoctor2 = "images/Doctor_Male.png";
-const urlReceptionist ="images/door.png"
+const urlReceptionist ="images/door2.png"
 const urlChair = "images/chair-icon.png";
 
 var characters = ["mario","luigi","princessPeach","toad","bowser"];
@@ -33,7 +33,7 @@ var characters = ["mario","luigi","princessPeach","toad","bowser"];
 const table = "images/newtable.png";
 const drinksdispenser = "images/drink_dispenser.png";
 const customers = "images/patient-icon.png"
-const door = "images/door.png"
+const door = "images/door2.png"
 const chair = "images/newchair.png";
 const pooltable = "images/pooltable.png";
 
@@ -173,19 +173,20 @@ const ENTRANCE = 3;
 var patients = [];
 // caregivers is a static list, populated with a receptionist and a doctor
 var caregivers = [
-  {"type":DOCTOR,"label":"Jenny","location":{"row":doctorRow,"col":doctorCol},"state":IDLE},
+  {"type":DOCTOR,"label":"Jenny","location":{"row":cashierRow,"col":cashierCol},"state":IDLE},
 	/////{"type":RECEPTIONIST,"label":"Ca$hier","location":{"row":cashierRow,"col":cashierCol},"state":IDLE},
   {"type":DRINKMACHINE,"label":"Drink dispenser","location":{"row":drinkdispenserRow,"col":drinkdispenserCol},"state":IDLE},
-  {"type":RECEPTIONIST,"label":"Entrance","location":{"row":receptionistRow,"col":receptionistCol},"state":IDLE}
+  {"type":RECEPTIONIST,"label":"Pokemon Alfresco","location":{"row":receptionistRow,"col":receptionistCol},"state":IDLE}
 ];
 var doctor = caregivers[0]; // the doctor is the first element of the caregivers list.
 
 // We can section our screen into different areas. In this model, the waiting area and the staging area are separate.
 var areas =[
- {"label":"Waiting Area","startRow":17,"numRows":1,"startCol":27,"numCols":8,"color":"pink"},
- {"label":"Staging Area","startRow":cashierRow,"numRows":1,"startCol":cashierCol-1,"numCols":1,"color":"red"},
- {"label":"Drinks Area","startRow":drinkdispenserRow,"numRows":1,"startCol":drinkdispenserCol-5,"numCols":5,"color":"blue"}
-]
+ {"label":"Waiting Area","startRow":17,"numRows":1,"startCol":26,"numCols":8,"color":"pink"},
+ {"label":"Staging Area","startRow":cashierRow,"numRows":1,"startCol":cashierCol-2,"numCols":1,"color":"red"},
+ {"label":"Drinks Area","startRow":drinkdispenserRow,"numRows":1,"startCol":drinkdispenserCol-5,"numCols":5,"color":"blue"},
+ {"label":"Ordering Area","startRow":cashierRow,"numRows":1,"startCol":cashierCol-1,"numCols":1,"color":"white"}
+];
 var waitingRoom = areas[0]; // the waiting room is the first element of the areas array
 
 var currentTime = 0;
@@ -329,7 +330,7 @@ function redrawWindow(){
 
 	// Re-initialize simulation variables
 
-	nextPatientID_A = 0; // ncrement this and assign it to the next entering patient of type A
+	nextPatientID_A = 0; // increment this and assign it to the next entering patient of type A
 	nextPatientID_B = 0; // increment this and assign it to the next entering patient of type B
 	nextTreatedPatientID_A =1; //this is the id of the next patient of type A to be treated by the doctor
 	nextTreatedPatientID_B =1; //this is the id of the next patient of type B to be treated by the doctor
@@ -589,7 +590,7 @@ function updatePatient(patientIndex){
 					patient.target.row = emptySeat.row;
 					patient.target.col = emptySeat.col;
 					// receptionist assigns a sequence number to each admitted patient to govern order of treatment
-					//if (patient.type=="A") patient.id = ++nextPatientID_A;
+					if (patient.type=="A") patient.id = ++nextPatientID_A;
 					//else patient.id = ++nextPatientID_B;
 				} else {
 					// There are no empty seats. We must reject this patient.
@@ -610,18 +611,18 @@ function updatePatient(patientIndex){
 					if (patient.id == nextTreatedPatientID_A){
 						emptySeatRow = patient.target.row
 						emptySeatCol = patient.target.col
-						patient.target.row = doctorRow;
-						patient.target.col = doctorCol-1;
+						patient.target.row = cashierRow;
+						patient.target.col = cashieCol-2;
 						patient.state = STAGING;
 					}
-					if (patient.id == nextTreatedPatientID_A+1){
+					/*if (patient.id == nextTreatedPatientID_A+1){
 						emptySeatRow = patient.target.row
 						emptySeatCol = patient.target.col
 						patient.target.row = doctorRow;
 						patient.target.col = doctorCol-2;
-					}
+					}*/
 				break;
-				case "B":
+				/*case "B":
 					if (patient.id == nextTreatedPatientID_B){
 						emptySeatRow = patient.target.row
 						emptySeatCol = patient.target.col
@@ -634,8 +635,8 @@ function updatePatient(patientIndex){
 						emptySeatCol = patient.target.col
 						patient.target.row = doctorRow;
 						patient.target.col = doctorCol-2;
-					}
-				break;
+					}*/
+				//break;
 				}
 				//create
 				var newEmptySeat = waitingSeats.filter(function(d){return d.row == emptySeatRow && d.col == emptySeatCol})
@@ -652,8 +653,8 @@ function updatePatient(patientIndex){
 					doctor.state = BUSY;
 					patient.state = INTREATMENT;
 					patient.target.row = doctorRow;
-					patient.target.col = doctorCol;
-					if (patient.type == "A") nextTreatedPatientID_A++; else nextTreatedPatientID_B++;
+					patient.target.col = doctorCol-1;
+					if (patient.type == "A") nextTreatedPatientID_A++; //else nextTreatedPatientID_B++;
 				}
 			}
 		break;
@@ -687,9 +688,9 @@ function updatePatient(patientIndex){
 				var stats;
 				if (patient.type=="A"){
 					stats = statistics[0];
-				}else{
-					stats = statistics[1];
-				}
+				}//else{
+					//stats = statistics[1];
+				//}
 				stats.cumulativeValue = stats.cumulativeValue+timeInClinic;
 				stats.count = stats.count + 1;
 			}
