@@ -612,7 +612,7 @@ function updatePatient(patientIndex){
 						emptySeatRow = patient.target.row
 						emptySeatCol = patient.target.col
 						patient.target.row = cashierRow;
-						patient.target.col = cashieCol-2;
+						patient.target.col = cashierCol-2;
 						patient.state = STAGING;
 					}
 					/*if (patient.id == nextTreatedPatientID_A+1){
