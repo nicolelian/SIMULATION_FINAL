@@ -17,12 +17,12 @@ var cellHeight; //cellHeight is calculated in the redrawWindow function
 // See the credits element on the html page for an example of how to comply with this rule.
 const urlPatientA = "images/customer-icon.png";
 const urlPatientB = "images/People-Patient-Male-icon.png";
-const urlMario = "images/mario-icon.png";
-const urlLuigi = "images/luigi-icon.png";
-const urlPrincessPeach = "images/princesspeach-icon.png";
-const urlBowser = "images/bowser-icon.png";
-const urlToad = "images/toad-icon.png";
-const urlDoctor1 = "images/Doctor_Female.png";
+const urlMario = "images/ash.png";
+const urlLuigi = "images/pikachu.png";
+const urlPrincessPeach = "images/charmander.png";
+const urlBowser = "images/eeve.png";
+const urlToad = "images/bulbasaur.png";
+const urlDoctor1 = "images/cashier.png";
 const urlDoctor2 = "images/Doctor_Male.png";
 const urlReceptionist ="images/door.png"
 const urlChair = "images/chair-icon.png";
@@ -30,11 +30,11 @@ const urlChair = "images/chair-icon.png";
 var characters = ["mario","luigi","princessPeach","toad","bowser"];
 
 ////////////////
-const table = "images/Table.png";
+const table = "images/newtable.png";
 const drinksdispenser = "images/drink_dispenser.png";
 const customers = "images/patient-icon.png"
 const door = "images/door.png"
-const chair = "images/chairs-icon.png";
+const chair = "images/newchair.png";
 const pooltable = "images/pooltable.png";
 
 ///////////////
@@ -173,7 +173,7 @@ const ENTRANCE = 3;
 var patients = [];
 // caregivers is a static list, populated with a receptionist and a doctor
 var caregivers = [
-  {"type":DOCTOR,"label":"Cashier Linda","location":{"row":doctorRow,"col":doctorCol},"state":IDLE},
+  {"type":DOCTOR,"label":"Jenny","location":{"row":doctorRow,"col":doctorCol},"state":IDLE},
 	/////{"type":RECEPTIONIST,"label":"Ca$hier","location":{"row":cashierRow,"col":cashierCol},"state":IDLE},
   {"type":DRINKMACHINE,"label":"Drink dispenser","location":{"row":drinkdispenserRow,"col":drinkdispenserCol},"state":IDLE},
   {"type":RECEPTIONIST,"label":"Entrance","location":{"row":receptionistRow,"col":receptionistCol},"state":IDLE}
@@ -182,8 +182,8 @@ var doctor = caregivers[0]; // the doctor is the first element of the caregivers
 
 // We can section our screen into different areas. In this model, the waiting area and the staging area are separate.
 var areas =[
- {"label":"Waiting Area","startRow":17,"numRows":1,"startCol":27,"numCols":9,"color":"pink"},
- {"label":"Staging Area","startRow":cashierRow,"numRows":1,"startCol":cashierCol-5,"numCols":5,"color":"pink"},
+ {"label":"Waiting Area","startRow":17,"numRows":1,"startCol":27,"numCols":8,"color":"pink"},
+ {"label":"Staging Area","startRow":cashierRow,"numRows":1,"startCol":cashierCol-1,"numCols":1,"color":"red"},
  {"label":"Drinks Area","startRow":drinkdispenserRow,"numRows":1,"startCol":drinkdispenserCol-5,"numCols":5,"color":"blue"}
 ]
 var waitingRoom = areas[0]; // the waiting room is the first element of the areas array
@@ -219,7 +219,7 @@ var Table4 = tablesIN[3];
 var Table5 = tablesIN[4];
 var Table6 = tablesIN[5];
 
-// There are 6 x 4 = 24 chairs 
+// There are 6 x 4 = 24 chairs
 const CHAIR1a = 0;
 const CHAIR1b = 1;
 const CHAIR1c = 2;
@@ -273,8 +273,8 @@ var chairsIN = [
   {"type":CHAIR6d,"label":"Chair6d","location":{"row":chairRow_6d,"col":chairCol_6d},"state":IDLE},
 ];
 
-var Chair1a = chairsIN[0]; //Add in all the other chairs 
-var Chair1b = chairsIN[1]; 
+var Chair1a = chairsIN[0]; //Add in all the other chairs
+var Chair1b = chairsIN[1];
 
 // The probability of a patient arrival needs to be less than the probability of a departure, else an infinite queue will build.
 // You also need to allow travel time for patients to move from their seat in the waiting room to get close to the doctor.
@@ -301,7 +301,7 @@ var OCCUPIED = 1;
 
 var waitingSeats = [];
 
-var seatCount = 4;
+var seatCount = 8;
 
 // This next function is executed when the script is loaded. It contains the page initialization code.
 (function() {
@@ -309,7 +309,7 @@ var seatCount = 4;
 	// All elements of the DOM will be available here
 	window.addEventListener("resize", redrawWindow); //Redraw whenever the window is resized
 	simTimer = window.setInterval(simStep, animationDelay); // call the function simStep every animationDelay milliseconds
-	document.getElementById("title").textContent = "Crooked Cooks Simulation";
+	document.getElementById("title").textContent = "Pokemon Alfresco Restaurant Simulation";
 	redrawWindow();
 })();
 
@@ -403,7 +403,7 @@ function updateSurface(){
 	// This function is used to create or update most of the svg elements on the drawing surface.
 	// See the function removeDynamicAgents() for how we remove svg elements
 
-	//Select all svg elements of class "patient" and map it to the data list called 
+	//Select all svg elements of class "patient" and map it to the data list called
 	var allpatients = surface.selectAll(".patient").data(patients);
 
 	// If the list of svg elements is longer than the data list, the excess elements are in the .exit() list
@@ -498,12 +498,12 @@ function updateSurface(){
 	var newseats = allseats.enter().append("g").attr("class","seats");
 
 	//For each new seat, append a chair image
-	newseats.append("svg:image")
+	/*newseats.append("svg:image")
 	.attr("x",function(d){var cell = getLocationCell(d); return cell.x+"px"})
 	.attr("y",function(d){var cell = getLocationCell(d); return cell.y+"px"})
 	.attr("width",Math.min(cellWidth *2,cellHeight*2)+"px")
 	.attr("height",Math.min(cellWidth,cellHeight)+"px")
-	.attr("xlink:href",urlChair);
+	.attr("xlink:href",urlChair);*/
 
   //////////////  Tables
 	var alltables = surface.selectAll(".tables").data(tablesIN);
@@ -520,7 +520,7 @@ function updateSurface(){
  	 .attr("xlink:href",function(d){return table});
 
    ////////////// Chairs
-    var allchairs = surface.selectAll(".chairs").data(chairsIN);
+  var allchairs = surface.selectAll(".chairs").data(chairsIN);
  	var newchairs = allchairs.enter().append("g").attr("class","chairs");
 
  	newchairs.append("svg:image")
@@ -528,7 +528,7 @@ function updateSurface(){
  	 .attr("y",function(d){var cell= getLocationCell(d.location); return cell.y+"px";})
  	 .attr("width", Math.min(cellWidth,cellHeight)+"px")
  	 .attr("height", Math.min(cellWidth,cellHeight)+"px")
- 	 .attr("xlink:href",chair);	
+ 	 .attr("xlink:href",chair);
 
 }
 
@@ -581,13 +581,16 @@ function updatePatient(patientIndex){
 				if (emptySeats.length>0){
 					//There is at least one empty seat
 					patient.state = WAITING;
+          /*for (i =0; i < seatCount; i++){
+            var emptySeat = emptySeats[i)];
+          }*/
 					var emptySeat = emptySeats[Math.floor(Math.random()*emptySeats.length)];
 					emptySeat.state=OCCUPIED;
 					patient.target.row = emptySeat.row;
 					patient.target.col = emptySeat.col;
 					// receptionist assigns a sequence number to each admitted patient to govern order of treatment
-					if (patient.type=="A") patient.id = ++nextPatientID_A;
-					else patient.id = ++nextPatientID_B;
+					//if (patient.type=="A") patient.id = ++nextPatientID_A;
+					//else patient.id = ++nextPatientID_B;
 				} else {
 					// There are no empty seats. We must reject this patient.
 					patient.state = DISCHARGED;
@@ -656,7 +659,7 @@ function updatePatient(patientIndex){
 		break;
 		case INTREATMENT:
 			// Complete treatment randomly according to the probability of departure
-			
+
 			if (Math.random()< probDeparture){
 				patient.state = TREATED;
 				doctor.state = IDLE;
@@ -664,7 +667,7 @@ function updatePatient(patientIndex){
 				var chairNum = Math.floor(Math.random() * availableseats.length);
 				patient.target.row = availableseats[chairNum].location.row;
 				patient.target.col = availableseats[chairNum].location.col;
-				//availableseats.type = 
+				//availableseats.type =
 				var chairType = availableseats[chairNum].type
 				//console.log(chairType)
 				//var currentSeat = chairsIN.filter(function(d){return d.type==chairType})
