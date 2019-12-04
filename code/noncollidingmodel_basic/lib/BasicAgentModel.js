@@ -310,13 +310,13 @@ function toggleSimStep(){
 function redrawWindow(){
 	isRunning = false; // used by simStep
 	window.clearInterval(simTimer); // clear the Timer
-	animationDelay = 400 - document.getElementById("slider1").value;
+	animationDelay = 200 - document.getElementById("slider1").value;
 	simTimer = window.setInterval(simStep, animationDelay); // call the function simStep every animationDelay milliseconds
 
 	// Re-initialize simulation variables
 
-	nextCustomerID_A = 0; 
-	nextorderingCustomerID_A =1; 
+	nextCustomerID_A = 0;
+	nextorderingCustomerID_A =1;
 	currentTime = 0;
 	cashier.state=IDLE;
 	statistics[0].cumulativeValue=0;
@@ -563,7 +563,7 @@ function updateCustomer(customerIndex){
 				statistics[2].count++; // number of customers who have arrived at entrance
 				// pick a random spot in the waiting area to queue
 				var emptySeats = waitingSeats.filter(function(d){return d.state==EMPTY;});
-				
+
 				if (emptySeats.length>0){
 
 					customer.state = WAITING;
@@ -582,6 +582,9 @@ function updateCustomer(customerIndex){
 					customer.target.row = 20;
 					customer.target.col = 17;
 					statistics[2].cumulativeValue = (statistics[2].cumulativeValue + 1*100); // count of rejected customers in percentage terms
+          var percentagerejected = statistics[2].cumulativeValue/statistics[2].count;
+          //console.log(percentagerejected);
+          //console.log(statistics[1].count)
 				}
 			}
 
@@ -620,7 +623,7 @@ function updateCustomer(customerIndex){
 					customer.state = ORDERING;
 					customer.target.row = cashierRow;
 					customer.target.col = cashierCol-1;
-					if (customer.type == "A") nextorderingcustomerID_A++;  	
+					if (customer.type == "A") nextorderingcustomerID_A++;
 				}
 			}
 		break;
@@ -639,6 +642,7 @@ function updateCustomer(customerIndex){
 				customer.target.col = customer.location.col;
 				customer.state = ORDERED;
 				var timeInQueue = currentTime - customer.timeAdmitted;
+        console.log("Time in Queue: " + timeInQueue)
 				statistics[1].cumulativeValue = statistics[1].cumulativeValue+timeInQueue;
 				statistics[1].count = statistics[1].count + 1;
 				}
@@ -662,7 +666,7 @@ function updateCustomer(customerIndex){
 			}
 			}
 		break;
-			
+
 
 		case ORDERING2:
 			if (hasArrived){
@@ -690,6 +694,7 @@ function updateCustomer(customerIndex){
 			if (hasArrived){
 				customer.state = EXITED;
 				var timeInRestaurant = currentTime - customer.timeAdmitted;
+        //console.log("Time in Restaurant: " + timeInRestaurant)
 				var stats = statistics[0];
 				stats.cumulativeValue = stats.cumulativeValue+timeInRestaurant;
 				stats.count = stats.count + 1;
