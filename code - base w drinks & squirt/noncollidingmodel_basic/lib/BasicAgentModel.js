@@ -32,85 +32,135 @@ const urlEntrance ="images/door2.png"
 
 ///////////////
 //Initializing all the locations for the tables
-var tableRow_1 = 5.5;
-var tableCol_1 = 10;
+var tableRow_1 = 5.5; 
+var tableCol_1 = 4; 
 
-var tableRow_2 = 5.5;
-var tableCol_2 = 20;
-
+var tableRow_2 = 5.5; 
+var tableCol_2 = 12;
+ 
 var tableRow_3 = 5.5;
-var tableCol_3 = 30;
+var tableCol_3 = 20;
 
-var tableRow_4 = 10;
-var tableCol_4 = 10;
+var tableRow_4 = 5.5; 
+var tableCol_4 = 28;
 
-var tableRow_5 = 10;
-var tableCol_5 = 20;
+var tableRow_5 = 5.5; 
+var tableCol_5 = 36;
 
-var tableRow_6 = 10;
-var tableCol_6 = 30;
+var tableRow_6 = 10; 
+var tableCol_6 = 4;
+
+var tableRow_7 = 10; 
+var tableCol_7 = 12;
+
+var tableRow_8 = 10; 
+var tableCol_8 = 20;
+
+var tableRow_9 = 10; 
+var tableCol_9 = 28;
+
+var tableRow_10 = 10; 
+var tableCol_10 = 36;
+
 
 ///////////////
 
 ///////////////
 //Positioning of the seats (4 seats per table)
 
-var chairRowlist = [chairRow_1a,chairRow_1b,chairRow_1c,chairRow_1d,chairRow_2a,chairRow_2b,chairRow_2c,chairRow_2d,chairRow_3a,chairRow_3b,chairRow_3c,chairRow_3d,chairRow_4a,chairRow_4b,chairRow_4c,chairRow_4d,chairRow_5a,chairRow_5b,chairRow_5c,chairRow_5d,chairRow_6a,chairRow_6b,chairRow_6c,chairRow_6d];
-var chairCollist = [chairCol_1a,chairCol_1b,chairCol_1c,chairCol_1d,chairCol_2a,chairCol_2b,chairCol_2c,chairCol_2d,chairCol_3a,chairCol_3b,chairCol_3c,chairCol_3d,chairCol_4a,chairCol_4b,chairCol_4c,chairCol_4d,chairCol_5a,chairCol_5b,chairCol_5c,chairCol_5d,chairCol_6a,chairCol_6b,chairCol_6c,chairCol_6d];
+var chairRowlist = [chairRow_1a,chairRow_1b,chairRow_1c,chairRow_1d,chairRow_2a,chairRow_2b,chairRow_2c,chairRow_2d,chairRow_3a,chairRow_3b,chairRow_3c,chairRow_3d,chairRow_4a,chairRow_4b,chairRow_4c,chairRow_4d,chairRow_5a,chairRow_5b,chairRow_5c,chairRow_5d,chairRow_6a,chairRow_6b,chairRow_6c,chairRow_6d, chairRow_7a,chairRow_7b,chairRow_7c,chairRow_7d, chairRow_8a,chairRow_8b,chairRow_8c,chairRow_8d, chairRow_9a,chairRow_9b,chairRow_9c,chairRow_9d, chairRow_10a,chairRow_10b,chairRow_10c,chairRow_10d];
+var chairCollist = [chairCol_1a,chairCol_1b,chairCol_1c,chairCol_1d,chairCol_2a,chairCol_2b,chairCol_2c,chairCol_2d,chairCol_3a,chairCol_3b,chairCol_3c,chairCol_3d,chairCol_4a,chairCol_4b,chairCol_4c,chairCol_4d,chairCol_5a,chairCol_5b,chairCol_5c,chairCol_5d,chairCol_6a,chairCol_6b,chairCol_6c,chairCol_6d, chairCol_7a,chairCol_7b,chairCol_7c,chairCol_7d, chairCol_8a,chairCol_8b,chairCol_8c,chairCol_8d, chairCol_9a,chairCol_9b,chairCol_9c,chairCol_9d, chairCol_10a,chairCol_10b,chairCol_10c,chairCol_10d];
 
-var chairRow_1a = 4.5;
-var chairCol_1a = 10.5;
-var chairRow_1b = 7.5;
-var chairCol_1b = 10.5;
-var chairRow_1c = 6;
-var chairCol_1c = 9;
-var chairRow_1d = 6;
-var chairCol_1d = 12;
+var chairRow_1a = 4.5; 
+var chairCol_1a = 4.5; 
+var chairRow_1b = 7.5; 
+var chairCol_1b = 4.5;
+var chairRow_1c = 6; 
+var chairCol_1c = 3; 
+var chairRow_1d = 6; 
+var chairCol_1d = 6;
 
-var chairRow_2a = 4.5;
-var chairCol_2a = 20.5;
+var chairRow_2a = 4.5; 
+var chairCol_2a = 12.5; 
 var chairRow_2b = 7.5;
-var chairCol_2b = 20.5;
-var chairRow_2c = 6;
-var chairCol_2c = 19;
-var chairRow_2d = 6;
-var chairCol_2d = 22;
+var chairCol_2b = 12.5; 
+var chairRow_2c = 6; 
+var chairCol_2c = 11; 
+var chairRow_2d = 6; 
+var chairCol_2d = 14; 
 
-var chairRow_3a = 4.5;
-var chairCol_3a = 30.5;
+var chairRow_3a = 4.5; 
+var chairCol_3a = 20.5; 
 var chairRow_3b = 7.5;
-var chairCol_3b = 30.5;
-var chairRow_3c = 6;
-var chairCol_3c = 29;
+var chairCol_3b = 20.5; 
+var chairRow_3c = 6; 
+var chairCol_3c = 19; 
 var chairRow_3d = 6;
-var chairCol_3d = 32;
+var chairCol_3d = 22; 
 
-var chairRow_4a = 9;
-var chairCol_4a = 10.5;
-var chairRow_4b = 12;
-var chairCol_4b = 10.5;
-var chairRow_4c = 10.5;
-var chairCol_4c = 9;
-var chairRow_4d = 10.5;
-var chairCol_4d = 12;
+var chairRow_4a = 4.5; 
+var chairCol_4a = 28.5; 
+var chairRow_4b = 7.5; 
+var chairCol_4b = 28.5; 
+var chairRow_4c = 6; 
+var chairCol_4c = 27; 
+var chairRow_4d = 6; 
+var chairCol_4d = 30; 
 
-var chairRow_5a = 9;
-var chairCol_5a = 20.5;
-var chairRow_5b = 12;
-var chairCol_5b = 20.5;
-var chairRow_5c = 10.5;
-var chairCol_5c = 19;
-var chairRow_5d = 10.5;
-var chairCol_5d = 22;
+var chairRow_5a = 4.5; 
+var chairCol_5a = 36.5; 
+var chairRow_5b = 7.5; 
+var chairCol_5b = 36.5; 
+var chairRow_5c = 6; 
+var chairCol_5c = 35; 
+var chairRow_5d = 6; 
+var chairCol_5d = 38; 
 
-var chairRow_6a = 9;
-var chairCol_6a = 30.5;
-var chairRow_6b = 12;
-var chairCol_6b = 30.5;
+var chairRow_6a = 9; 
+var chairCol_6a = 4.5; 
+var chairRow_6b = 12; 
+var chairCol_6b = 4.5; 
 var chairRow_6c = 10.5;
-var chairCol_6c = 29;
-var chairRow_6d = 10.5;
-var chairCol_6d = 32;
+var chairCol_6c = 3; 
+var chairRow_6d = 10.5; 
+var chairCol_6d = 6; 
+
+var chairRow_7a = 9; 
+var chairCol_7a = 12.5; 
+var chairRow_7b = 12; 
+var chairCol_7b = 12.5; 
+var chairRow_7c = 10.5; 
+var chairCol_7c = 11; 
+var chairRow_7d = 10.5;
+var chairCol_7d = 14; 
+
+var chairRow_8a = 9; 
+var chairCol_8a = 20.5; 
+var chairRow_8b = 12; 
+var chairCol_8b = 20.5; 
+var chairRow_8c = 10.5; 
+var chairCol_8c = 19; 
+var chairRow_8d = 10.5; 
+var chairCol_8d = 22; 
+
+var chairRow_9a = 9; 
+var chairCol_9a = 28.5; 
+var chairRow_9b = 12; 
+var chairCol_9b = 28.5; 
+var chairRow_9c = 10.5; 
+var chairCol_9c = 27; 
+var chairRow_9d = 10.5; 
+var chairCol_9d = 30; 
+
+var chairRow_10a = 9; 
+var chairCol_10a = 36.5; 
+var chairRow_10b = 12; 
+var chairCol_10b = 36.5; 
+var chairRow_10c = 10.5; 
+var chairCol_10c = 35; 
+var chairRow_10d = 10.5; 
+var chairCol_10d = 38; 
+
 
 ///////////////
 //Positioning of the cashier and entrance
@@ -124,7 +174,7 @@ var cashierCol = 37;
 var entranceRow = 17;
 var entranceCol = 20;
 
-var drinkdispenserRow = 10;
+var drinkdispenserRow = 15;
 var drinkdispenserCol = 37;
 
 /////////////
@@ -188,6 +238,11 @@ const TABLE3 = 2;
 const TABLE4 = 3;
 const TABLE5 = 4;
 const TABLE6 = 5;
+const TABLE7 = 6;
+const TABLE8 = 7;
+const TABLE9 = 8;
+const TABLE10 = 9;
+
 // create all the tables in a list
 var tablesIN = [
   {"type":TABLE1,"label":"Table1","location":{"row":tableRow_1,"col":tableCol_1},"state":IDLE},
@@ -196,6 +251,10 @@ var tablesIN = [
   {"type":TABLE4,"label":"Table4","location":{"row":tableRow_4,"col":tableCol_4},"state":IDLE},
   {"type":TABLE5,"label":"Table5","location":{"row":tableRow_5,"col":tableCol_5},"state":IDLE},
   {"type":TABLE6,"label":"Table6","location":{"row":tableRow_6,"col":tableCol_6},"state":IDLE},
+  {"type":TABLE7,"label":"Table7","location":{"row":tableRow_7,"col":tableCol_7},"state":IDLE},
+  {"type":TABLE8,"label":"Table8","location":{"row":tableRow_8,"col":tableCol_8},"state":IDLE},
+  {"type":TABLE9,"label":"Table9","location":{"row":tableRow_9,"col":tableCol_9},"state":IDLE},
+  {"type":TABLE10,"label":"Table10","location":{"row":tableRow_10,"col":tableCol_10},"state":IDLE},
 ];
 
 var Table1 = tablesIN[0]; //the first table is the first thing in the table list
@@ -204,6 +263,10 @@ var Table3 = tablesIN[2];
 var Table4 = tablesIN[3];
 var Table5 = tablesIN[4];
 var Table6 = tablesIN[5];
+var Table7 = tablesIN[6];
+var Table8 = tablesIN[7];
+var Table9 = tablesIN[8];
+var Table10 = tablesIN[9];
 
 // There are 6 x 4 = 24 chairs
 const CHAIR1a = 0;
@@ -230,6 +293,22 @@ const CHAIR6a = 20;
 const CHAIR6b = 21;
 const CHAIR6c = 22;
 const CHAIR6d = 23;
+const CHAIR7a = 24;
+const CHAIR7b = 25;
+const CHAIR7c = 26;
+const CHAIR7d = 27;
+const CHAIR8a = 28;
+const CHAIR8b = 29;
+const CHAIR8c = 30;
+const CHAIR8d = 31;
+const CHAIR9a = 32;
+const CHAIR9b = 33;
+const CHAIR9c = 34;
+const CHAIR9d = 35;
+const CHAIR10a = 36;
+const CHAIR10b = 37;
+const CHAIR10c = 38;
+const CHAIR10d = 39;
 
 //Creating a list for all the chairs
 var chairsIN = [
@@ -257,6 +336,22 @@ var chairsIN = [
   {"type":CHAIR6b,"label":"Chair6b","location":{"row":chairRow_6b,"col":chairCol_6b},"state":IDLE},
   {"type":CHAIR6c,"label":"Chair6c","location":{"row":chairRow_6c,"col":chairCol_6c},"state":IDLE},
   {"type":CHAIR6d,"label":"Chair6d","location":{"row":chairRow_6d,"col":chairCol_6d},"state":IDLE},
+  {"type":CHAIR7a,"label":"Chair7a","location":{"row":chairRow_7a,"col":chairCol_7a},"state":IDLE},
+  {"type":CHAIR7b,"label":"Chair7b","location":{"row":chairRow_7b,"col":chairCol_7b},"state":IDLE},
+  {"type":CHAIR7c,"label":"Chair7c","location":{"row":chairRow_7c,"col":chairCol_7c},"state":IDLE},
+  {"type":CHAIR7d,"label":"Chair7d","location":{"row":chairRow_7d,"col":chairCol_7d},"state":IDLE},
+  {"type":CHAIR8a,"label":"Chair8a","location":{"row":chairRow_8a,"col":chairCol_8a},"state":IDLE},
+  {"type":CHAIR8b,"label":"Chair8b","location":{"row":chairRow_8b,"col":chairCol_8b},"state":IDLE},
+  {"type":CHAIR8c,"label":"Chair8c","location":{"row":chairRow_8c,"col":chairCol_8c},"state":IDLE},
+  {"type":CHAIR8d,"label":"Chair8d","location":{"row":chairRow_8d,"col":chairCol_8d},"state":IDLE},
+  {"type":CHAIR9a,"label":"Chair9a","location":{"row":chairRow_9a,"col":chairCol_9a},"state":IDLE},
+  {"type":CHAIR9b,"label":"Chair9b","location":{"row":chairRow_9b,"col":chairCol_9b},"state":IDLE},
+  {"type":CHAIR9c,"label":"Chair9c","location":{"row":chairRow_9c,"col":chairCol_9c},"state":IDLE},
+  {"type":CHAIR9d,"label":"Chair9d","location":{"row":chairRow_9d,"col":chairCol_9d},"state":IDLE},
+  {"type":CHAIR10a,"label":"Chair10a","location":{"row":chairRow_10a,"col":chairCol_10a},"state":IDLE},
+  {"type":CHAIR10b,"label":"Chair10b","location":{"row":chairRow_10b,"col":chairCol_10b},"state":IDLE},
+  {"type":CHAIR10c,"label":"Chair10c","location":{"row":chairRow_10c,"col":chairCol_10c},"state":IDLE},
+  {"type":CHAIR10d,"label":"Chair10d","location":{"row":chairRow_10d,"col":chairCol_10d},"state":IDLE},
 ];
 
 
