@@ -228,8 +228,8 @@ var waitingRoom = areas[0]; // the waiting room is the first element of the area
 var currentTime = 0;
 var statistics = [
 {"name":"Average time spent in CrookedCook, Students: ","location":{"row":16,"col":1},"cumulativeValue":0,"count":0},
-{"name":"Average time spent in CrookedCook, Faculty: ","location":{"row":17,"col":1},"cumulativeValue":0,"count":0},
-{"name":"Number of Customers missed: ","location":{"row":18,"col":1},"cumulativeValue":0,"count":0}
+{"name":"Average time spent in queue by Customer: ","location":{"row":17,"col":1},"cumulativeValue":0,"count":0},
+{"name":"Average percentage of rejected Customers: ","location":{"row":18,"col":1},"cumulativeValue":0,"count":0}
 ];
 
 // There are 6 tables
