@@ -218,7 +218,7 @@ var cashier = staticmembers[0]; // the cashier is the first element of the stati
 
 // We can section our screen into different areas. In this model, the waiting area and the staging area are separate.
 var areas =[
- {"label":"Waiting Area","startRow":cashierRow,"numRows":1,"startCol":26,"numCols":8,"color":"pink"},
+ {"label":"Waiting Area","startRow":cashierRow,"numRows":1,"startCol":14,"numCols":8,"color":"pink"},
  {"label":"Staging Area","startRow":cashierRow,"numRows":1,"startCol":cashierCol-2,"numCols":1,"color":"red"},
  {"label":"Drinks Area","startRow":drinkdispenserRow,"numRows":1,"startCol":drinkdispenserCol-5,"numCols":5,"color":"blue"},
  {"label":"Ordering Area","startRow":cashierRow,"numRows":1,"startCol":cashierCol-1,"numCols":1,"color":"white"}
@@ -383,7 +383,7 @@ var OCCUPIED = 1;
 var waitingSeats = [];
 
 var seatCount = 8;
-var queueSeats = 8;
+var queueSeats = 20;
 
 
 // This next function is executed when the script is loaded. It contains the page initialization code.
@@ -460,7 +460,7 @@ function redrawWindow(){
 		return {"row":row, "col":col,"state":state, "waitingseatnum":waitingseatnum};
 	});
 
-	//waitingSeats.state = EMPTY
+
 
 	// In other functions we will access the drawing surface using the d3 library.
 	//Here we set the global variable, surface, equal to the d3 selection of the drawing surface
@@ -565,27 +565,12 @@ function updateSurface(){
 	// Finally, we would like to draw boxes around the different areas of our system. We can use d3 to do that too.
 	var allareas = surface.selectAll(".areas").data(areas);
 	var newareas = allareas.enter().append("g").attr("class","areas");
-	// For each new area, append a rectangle to the group
-	//newareas.append("rect")
-	//.attr("x", function(d){return (d.startCol-1)*cellWidth;})
-	//.attr("y",  function(d){return (d.startRow-1)*cellHeight;})
-	//.attr("width",  function(d){return d.numCols*cellWidth;})
-	//.attr("height",  function(d){return d.numRows*cellWidth;})
-	//.style("fill", function(d) { return d.color; })
-	//.style("stroke","black")
-	//.style("stroke-width",1);
+
 
 	//For this simulation we will display an empty seat for each cell in the waiting area
 	var allseats = surface.selectAll(".seats").data(waitingSeats);
 	var newseats = allseats.enter().append("g").attr("class","seats");
 
-	//For each new seat, append a chair image
-	/*newseats.append("svg:image")
-	.attr("x",function(d){var cell = getLocationCell(d); return cell.x+"px"})
-	.attr("y",function(d){var cell = getLocationCell(d); return cell.y+"px"})
-	.attr("width",Math.min(cellWidth *2,cellHeight*2)+"px")
-	.attr("height",Math.min(cellWidth,cellHeight)+"px")
-	.attr("xlink:href",urlChair);*/
 
   //////////////  Tables
 	var alltables = surface.selectAll(".tables").data(tablesIN);
@@ -741,6 +726,78 @@ function updateCustomer(customerIndex){
             emptySeatCol = customer.target.col
             customer.target.row = cashierRow;
             customer.target.col = cashierCol-9;
+            }
+          else if (customer.id == nextorderingcustomerID_A+8){
+            emptySeatRow = customer.target.row
+            emptySeatCol = customer.target.col
+            customer.target.row = cashierRow;
+            customer.target.col = cashierCol-10;
+            }
+          else if (customer.id == nextorderingcustomerID_A+9){
+            emptySeatRow = customer.target.row
+            emptySeatCol = customer.target.col
+            customer.target.row = cashierRow;
+            customer.target.col = cashierCol-11;
+            }
+          else if (customer.id == nextorderingcustomerID_A+10){
+            emptySeatRow = customer.target.row
+            emptySeatCol = customer.target.col
+            customer.target.row = cashierRow;
+            customer.target.col = cashierCol-12;
+            }
+          else if (customer.id == nextorderingcustomerID_A+11){
+            emptySeatRow = customer.target.row
+            emptySeatCol = customer.target.col
+            customer.target.row = cashierRow;
+            customer.target.col = cashierCol-13;
+            }
+           else if (customer.id == nextorderingcustomerID_A+12){
+            emptySeatRow = customer.target.row
+            emptySeatCol = customer.target.col
+            customer.target.row = cashierRow;
+            customer.target.col = cashierCol-14;
+            }
+          else if (customer.id == nextorderingcustomerID_A+13){
+            emptySeatRow = customer.target.row
+            emptySeatCol = customer.target.col
+            customer.target.row = cashierRow;
+            customer.target.col = cashierCol-15;
+            }
+          else if (customer.id == nextorderingcustomerID_A+14){
+            emptySeatRow = customer.target.row
+            emptySeatCol = customer.target.col
+            customer.target.row = cashierRow;
+            customer.target.col = cashierCol-16;
+            }
+          else if (customer.id == nextorderingcustomerID_A+15){
+            emptySeatRow = customer.target.row
+            emptySeatCol = customer.target.col
+            customer.target.row = cashierRow;
+            customer.target.col = cashierCol-17;
+            }
+          else if (customer.id == nextorderingcustomerID_A+16){
+            emptySeatRow = customer.target.row
+            emptySeatCol = customer.target.col
+            customer.target.row = cashierRow;
+            customer.target.col = cashierCol-18;
+            }
+          else if (customer.id == nextorderingcustomerID_A+17){
+            emptySeatRow = customer.target.row
+            emptySeatCol = customer.target.col
+            customer.target.row = cashierRow;
+            customer.target.col = cashierCol-19;
+            }
+          else if (customer.id == nextorderingcustomerID_A+18){
+            emptySeatRow = customer.target.row
+            emptySeatCol = customer.target.col
+            customer.target.row = cashierRow;
+            customer.target.col = cashierCol-20;
+            }
+          else if (customer.id == nextorderingcustomerID_A+19){
+            emptySeatRow = customer.target.row
+            emptySeatCol = customer.target.col
+            customer.target.row = cashierRow;
+            customer.target.col = cashierCol-21;
             }
 
 
