@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<style>
+table {border-collapse: collapse;}
+th {border: 1px solid black;padding:5px;text-align:center;}
+td {border: 1px solid black;padding:5px;text-align:left;}
+
+.center{
+	text-align: center;
+}
+
+.bodytextcenter{
+	text-align: justify;
+}
+
+.sectionheader{
+	font-weight: bold;
+}
+
+.fit{
+	max-width: 80%;
+	max-height: 80%;
+}
+
+.fit2{
+	max-width: 100%;
+	max-height: 100%;
+	}
+
+.fit3{
+	max-width: 40%;
+	max-height: 40%;
+	}
+
+}
+</style>
+
+<head>
+<!-- Add a suitable title for this page -->
+<title>Simulation Design</title>
+</head>
+
+
+<body>
+<!-- What is the name of this folder? -->
+<h1 class="center"> Simulation Design </h1>
+
+<p>
+We will be taking you through a macro to micro flow of the design of our simulation
+</p>
+
+
+<p class="sectionheader">
+Introducing our Influence Diagram:
+</p>
+
+<div class="center">
+<img class="fit" src="influence_diagram.png">
+</div>
+
+<p>
+This diagram will give you an insight into all the key elements in our
+restaurant that will later help you in picturing our decisions,
+uncertainties that we accounted for and the objective of embarking
+on this simulation project.
+
+<br>
+Let's take you through one particular scenario:
+<br>
+<span>
+	<li> The number of customers in the pokemon restaurant increases</li>
+	<li> Very intuitively, you know that the <strong>number of seats available automatically decreases</strong></li>
+	<li> You also know that the <strong>availability of the cashier decreases</strong></li>
+	<li> As the capacity of the restaurant fills up, the <strong>rejected customers also increases</strong></li>
+	<li> As the capacity of the restaurant fills up, the <strong>queue gets longer</strong></li>
+	<li> Therefore, the <strong>time spent in the restaurant also increases</strong></li>
+</span>
+</p>
+
+<br>
+<br>
+<br>
+
+<p class="sectionheader">
+Next, let's take a deep dive into how the back end works by looking at our modal analysis:
+</p>
+
+<div class="center">
+<img class="fit2" src="modal_analysis.png">
+</div>
+
+<p>
+This diagram shows you the entire flow of a pokemon customer's experience in our Alfresco restaurant.
+Our agent-based simulation model has been very purposely divided into 8 different states.
+
+<br>
+<br>
+Let's take you through each state:
+<br>
+<br>
+
+Upon even arriving, unlike the doctor and patient non-colliding model,
+their possibility of entry is not determined at the cashier. The customer decides at that point based
+on a visual intake if the restaurant is full or if they would like to stand in the queue to wait.
+
+<br>
+<br>
+If they don't they immediately go to <strong>"rejected"</strong>
+<br>
+<br>
+
+Else, what happens is that they enter the restarurant and go from <strong> unodered to waiting</strong> when they enter the queue.
+Just like the non-colliding model, when they are the next customer, they will enter the <strong>staging area.</strong>
+<br>
+<br>
+When they are at the cashier, change to <strong>ordering</strong> and after this, they have 2 options. one of which is to go to their table to eat the food they have served, categorized as <strong> eating </strong>.
+Or proceed to the drinks dispenser which is represented by <strong> ordering 2 </strong> to collect their drinks before heading to the table to eat.
+<br>
+<br>
+After they have completed their meal, <strong> eaten </strong> they move on to the exit and get removed from the system.
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+	You might have noticed that we have some assets on the screens such as the seats, cashier and drink dispenser that are fixed on the screen.
+</p>
+<p class="sectionheader">
+We thought that it might have been useful for your visualization therefore we have also included the state diagrams:
+</p>
+<div class="center">
+<img class="fit2" src="state_diagram.png">
+</div>
+
+
+
+</body>
+</html>
